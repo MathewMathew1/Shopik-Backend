@@ -12,8 +12,10 @@ namespace Shop.Api.Settings
             get
             {
                 if(Port != null){
+                    Console.WriteLine($"{ConnectionString}");
                     return $"{ConnectionString}";
                 }
+                Console.WriteLine($"mongodb://{User}:{Password}@{Host}:{Port}");
                 return $"mongodb://{User}:{Password}@{Host}:{Port}";
             } 
         }
