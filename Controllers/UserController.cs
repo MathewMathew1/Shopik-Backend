@@ -8,7 +8,7 @@ using Shop.Api.MiddleWare;
 namespace Shop.Api.Controllers;
 
 [ApiController]
-[Route("api/v1/auth")]
+[Route("api/v1/auth/")]
 public class UserController : ControllerBase
 {
     private readonly IUserRepository repository;
@@ -23,7 +23,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    [Route("/sign-up")]
+    [Route("sign-up")]
     public async Task<ActionResult<IEnumerable<UserModel>>> SignUpAsync([FromBody] UserSignUp userSignUp)
     {       
         try{
@@ -48,7 +48,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPost]
-    [Route("/login")]
+    [Route("login")]
     public async Task<ActionResult<AuthenticateDataDto>> LoginAsync([FromBody] UserLogin userLogin)
     {       
         try{
@@ -72,7 +72,7 @@ public class UserController : ControllerBase
   
     [HttpPatch]
     [Authorize]
-    [Route("/role/{id}")]
+    [Route("role/{id}")]
     public async Task<ActionResult> ChangeUserRoleAsync(Guid id, [FromBody] ChangeUserRoleDto changeRole)
     {       
         try{
@@ -95,7 +95,7 @@ public class UserController : ControllerBase
 
     [HttpGet]
     [Authorize]
-    [Route("/userInfo")]
+    [Route("userInfo")]
     public async Task<ActionResult<UserModelDto>> GetUserInfoAsync()
     {       
         try{

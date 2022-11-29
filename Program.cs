@@ -54,7 +54,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddHealthChecks()
 .AddMongoDb(
-    mongoDbSettings.ConnectionString, 
+    mongoDbSettings.ConnectionStringSetup, 
     name: "mongodb", 
     timeout: TimeSpan.FromSeconds(3),
     tags: new[] {"ready"}
