@@ -23,7 +23,7 @@ IConfiguration config = configB.Build();
 var mongoDbSettings = config.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
 
 builder.Services.AddSingleton<IMongoClient>(ServiceProvider => {
-    return  new MongoClient(mongoDbSettings.ConnectionString);
+    return  new MongoClient(mongoDbSettings.ConnectionStringSetup);
 });
 builder.Services.AddSingleton<IShopItemRepository, MongoDbShopItemsRepository>();
 builder.Services.AddSingleton<IUserRepository, MongoDbUserRepository>();
