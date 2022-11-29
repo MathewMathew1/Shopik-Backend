@@ -1,0 +1,5 @@
+# dependencies
+appsettings.Development.json
+bin/
+obj/
+kubernetes/
