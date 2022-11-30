@@ -116,7 +116,7 @@ namespace Shop.Api.Entities{
         [Required]
         public String Region {get; set;}
 
-        [Required, Range(3,12)]
+        [Required, MinLength(3), MaxLength(12)]
         public String PostalCode {get; set;}
 
         [Required, MinLength(2)]
