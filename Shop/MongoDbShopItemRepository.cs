@@ -75,7 +75,7 @@ namespace Shop.Api.Repositories{
             FilterDefinition<ShopItem>? filter = filterBuilder.Empty;
 
             if(filterOptions.NameToMatch!=null){ 
-                var nameFilter = filterBuilder.Where(item=>item.Name.Contains(filterOptions.NameToMatch));
+                var nameFilter = filterBuilder.Where(item=> item.Name.ToLower().Contains(filterOptions.NameToMatch.ToLower()) || item.Description.ToLower().Contains(filterOptions.NameToMatch.ToLower()));
                 filter &= nameFilter;
             }
             if(filterOptions.SeasonToMatch!=null){ 

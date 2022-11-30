@@ -177,6 +177,7 @@ public class OrderController : ControllerBase
       }
       catch (StripeException e)
       {
+        Console.WriteLine(e);
         return BadRequest();
       }
     }
