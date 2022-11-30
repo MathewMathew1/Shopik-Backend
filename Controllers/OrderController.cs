@@ -11,7 +11,7 @@ using Shop.Api.Payments;
 namespace Shop.Api.Controllers;
 
 [ApiController]
-[Route("api/v1/order")]
+[Route("api/v1/order/")]
 public class OrderController : ControllerBase
 {
     private readonly IOrderRepository repository;
