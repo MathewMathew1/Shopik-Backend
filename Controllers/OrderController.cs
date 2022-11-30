@@ -94,8 +94,10 @@ public class OrderController : ControllerBase
             await Task.WhenAll(createOrder.OrderedItems.Select(
                 async orderedItem => {
                     ShopItem item = await repository2.GetShopItemAsync(orderedItem.ShopItemId);
+                    if(item == null) return;
+
                     SessionLineItemOptions stripeItem = new SessionLineItemOptions();
-                  
+                    
                     stripeItem.PriceData = new SessionLineItemPriceDataOptions
                     {
                         UnitAmount = (long)item.Price * 100,
@@ -110,6 +112,8 @@ public class OrderController : ControllerBase
                     items.Add(stripeItem);
                 }
             ));
+
+            if(items.Count == 0) return StatusCode(400, new {error = "No items to add to order found in request "});
 
             var result = await this.paymentProcessor.ProcessPayment(items, createOrder.RedirectUrlSuccess, createOrder.RedirectUrlFailure);
 
