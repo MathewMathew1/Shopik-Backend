@@ -11,5 +11,5 @@
   StripeApi used to process payments.  
     On request to create order backend will create a link to stripe and send it back to client.    
     Once client will confirm payment, stripe using webhook will hit an endpoint to confirm that transcation was sucessfull making order confirmed in database.  
-    Then verified user can later confirm that order was transportedd to corect adress corectly.  
+    Then verified user can later confirm that order was transported to corect adress corectly.  
   
