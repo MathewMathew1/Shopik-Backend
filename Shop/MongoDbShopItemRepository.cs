@@ -47,6 +47,7 @@ namespace Shop.Api.Repositories{
                 {new BsonDocument("Id", 1)},
                 {new BsonDocument("Name", 1)},
                 {new BsonDocument("Price", 1)},
+                {new BsonDocument("$size", "$Ratings")},
                 {new BsonDocument("Description", 1)},
                 {new BsonDocument("Season", 1)},
                 {new BsonDocument("CreatedDate", 1)},
